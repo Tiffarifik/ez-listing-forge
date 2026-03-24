@@ -576,6 +576,59 @@ footer a:hover {
   border-radius: 3px;
   margin: 6rem auto;
 }
+/* ─── LIGHTBOX ─── */
+.feature-card-img {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.feature-card-img:hover {
+  opacity: 0.85;
+}
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 95%;
+  max-height: 95vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10000;
+  font-weight: 300;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
 </style>
 </head>
 <body>
@@ -803,6 +856,12 @@ footer a:hover {
   <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; color: #555;">The term "Etsy" is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="Screenshot enlarged">
+</div>
+
 <script>
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
@@ -815,6 +874,27 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
 reveals.forEach(el => observer.observe(el));
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+document.querySelectorAll('.feature-card-img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 
 </body>
