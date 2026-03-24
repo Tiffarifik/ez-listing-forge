@@ -640,6 +640,7 @@ footer a:hover {
     <li><a href="#features">Features</a></li>
     <li><a href="#how">How It Works</a></li>
     <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#api">API</a></li>
     <li><a href="#cta" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Coming Soon</a></li>
   </ul>
 </nav>
@@ -839,6 +840,74 @@ footer a:hover {
   </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- API INTEGRATION -->
+<section id="api">
+  <div class="section-label">API Integration</div>
+  <h2 class="section-title">Built on the Etsy Open API v3</h2>
+  <p class="section-desc">EZ Listing Forge integrates directly with the Etsy Open API v3 using OAuth 2.0 with PKCE for secure authentication. Here's how the app uses the API.</p>
+
+  <div class="capabilities">
+    <div class="capability reveal">
+      <div class="capability-dot dot-teal"></div>
+      <div>
+        <h4>Create Draft Listings</h4>
+        <p>Uses the <strong>createDraftListing</strong> endpoint to create new listings as drafts. Listings are never auto-published — sellers always review and publish manually from their shop.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-magenta"></div>
+      <div>
+        <h4>Upload Listing Images</h4>
+        <p>Uses the <strong>uploadListingImage</strong> endpoint to attach product images, branding graphics, and WYR mockups to each listing. AI-generated alt text is included with each image upload for accessibility.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-teal"></div>
+      <div>
+        <h4>Update Listing Metadata</h4>
+        <p>Uses the <strong>updateListing</strong> endpoint to push updated titles, tags, descriptions, and pricing to existing listings during bulk editing.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-magenta"></div>
+      <div>
+        <h4>Fetch Existing Listings</h4>
+        <p>Uses the <strong>getListingsByShop</strong> endpoint to import existing listings for review, editing, and bulk updates.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-teal"></div>
+      <div>
+        <h4>OAuth 2.0 Authentication</h4>
+        <p>Sellers securely connect their shop via OAuth 2.0 with PKCE. The app never sees or stores login credentials — all authentication is handled through Etsy's authorization page.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-magenta"></div>
+      <div>
+        <h4>Upload Listing Video</h4>
+        <p>Uses the <strong>uploadListingVideo</strong> endpoint to attach a product video to a listing. Videos are generated locally by the app before uploading.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-teal"></div>
+      <div>
+        <h4>SKU Generation</h4>
+        <p>The app generates a unique SKU for each listing and includes it when creating or updating listings via the API.</p>
+      </div>
+    </div>
+    <div class="capability reveal">
+      <div class="capability-dot dot-magenta"></div>
+      <div>
+        <h4>AI Metadata (Local)</h4>
+        <p>Title, tag, and description generation is handled locally via AI — this does not use the Etsy API. Only the final metadata is sent to Etsy when creating or updating a listing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta" class="cta-section">
   <div class="cta-content">
@@ -851,7 +920,7 @@ footer a:hover {
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">EZ Listing Forge</div>
-  <p>A product by <a href="https://thecreatiffgirl.com" target="_blank">The CreaTiff Girl</a> · Hustle Heart Design Co</p>
+  <p>A product by <a href="https://thecreatiffgirl.com" target="_blank">The CreaTiff Girl</a> · <a href="https://www.etsy.com/shop/HustleHeartDesignCo" target="_blank" style="color: var(--teal); text-decoration: none;">Hustle Heart Design Co</a></p>
   <p style="margin-top: 0.5rem;">&copy; 2026 Hustle Heart Design Co. All rights reserved.</p>
   <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; color: #555;">The term "Etsy" is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
 </footer>
